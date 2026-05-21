@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: ./Client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server
+    env_file:
+      - ./Client/.env
+
+  server:
+    build:
+      context: ./Server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    env_file:
+      - ./Server/.env
+
+  mongo:
+    image: mongo:6
+    container_name: bloodbank-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

@@ -1,16 +1,4 @@
-
-// let urlBase;
-// if (import.meta.env.VITE_REACT_APP_ENV === 'true') {
-//     // Production
-//     urlBase = 'https://rich-ruby-sturgeon-garb.cyclic.app/api/'
-// } else if (import.meta.env.VITE_REACT_APP_ENV === 'false') {
-//     // Development
-//     urlBase = 'http://192.168.0.105:4500/api/';
-
-// }
-
-   let urlBase = 'https://rich-ruby-sturgeon-garb.cyclic.app/api/'
-   
+const urlBase = import.meta.env.VITE_API_URL
 
 // Users
 export const register = urlBase + 'users/register'
@@ -30,10 +18,3 @@ export const getInventoryWithFilters = urlBase + 'inventory/getInventory-filter'
 
 // Dashboard
 export const getAllBloodData = urlBase + 'dashboard/bloodGroup-data-all'
-
-
-
-
-
-
-
